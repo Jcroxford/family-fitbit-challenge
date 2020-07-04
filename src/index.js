@@ -1,5 +1,7 @@
 import express from 'express'
+import bodyParser from 'body-parser'
 import Apollo from 'apollo-server-express'
+import passport from 'passport'
 
 import FitbitController from './controllers/fitbit.controller.js'
 import dotenv from 'dotenv'
@@ -25,6 +27,8 @@ const resolvers = {
 const server = new ApolloServer({ typeDefs, resolvers })
 
 const app = express()
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(passport.initialize())
 server.applyMiddleware({ app })
 
 // add routes
