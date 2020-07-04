@@ -1,7 +1,10 @@
 import express from 'express'
 import Apollo from 'apollo-server-express'
 
-import FitbitController from './controllers/fitbit.controller'
+import FitbitController from './controllers/fitbit.controller.js'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const { ApolloServer, gql } = Apollo
 
@@ -27,6 +30,6 @@ server.applyMiddleware({ app })
 // add routes
 app.use('api/v1/fitbit', FitbitController)
 
-app.listen({ port: 4000 }, () =>
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+app.listen({ port: process.env.PORT }, () =>
+  console.log(`🚀 Server ready at http://localhost:${process.env.PORT}${server.graphqlPath}`)
 )
