@@ -28,7 +28,7 @@ const app = express()
 server.applyMiddleware({ app })
 
 // add routes
-app.use('api/v1/fitbit', FitbitController)
+app.use('/api/v1/fitbit', FitbitController)
 
 app.listen({ port: process.env.PORT }, () =>
   console.log(`🚀 Server ready at http://localhost:${process.env.PORT}${server.graphqlPath}`)
