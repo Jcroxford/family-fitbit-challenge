@@ -3,10 +3,9 @@ import bodyParser from 'body-parser'
 import Apollo from 'apollo-server-express'
 import passport from 'passport'
 
-import FitbitController from './controllers/fitbit.controller.js'
-import dotenv from 'dotenv'
+import './initDotenv.js'
 
-dotenv.config()
+import FitbitController from './controllers/fitbit.controller.js'
 
 const { ApolloServer, gql } = Apollo
 
