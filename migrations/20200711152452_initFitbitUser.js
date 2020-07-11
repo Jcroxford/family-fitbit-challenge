@@ -7,7 +7,7 @@ exports.up = function (knex) {
       table.foreign('userId').references('users.id').onDelete('CASCADE')
       table.string('refreshToken').nullable()
       table.string('accessToken').nullable()
-      table.timestamps()
+      table.timestamps(false, true)
 
       table.index('id')
       table.index('userId')
