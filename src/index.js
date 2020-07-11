@@ -1,13 +1,11 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import Apollo from 'apollo-server-express'
-import passport from 'passport'
+const express = require('express')
+const bodyParser = require('body-parser')
+const { ApolloServer, gql } = require('apollo-server-express')
+const passport = require('passport')
 
-import './initDotenv.js'
+require('./initDotenv.js')
 
-import FitbitController from './controllers/fitbit.controller.js'
-
-const { ApolloServer, gql } = Apollo
+const FitbitController = require('./controllers/fitbit.controller.js')
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`

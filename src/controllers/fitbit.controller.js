@@ -1,9 +1,7 @@
-import express from 'express'
+const router = require('express').Router()
 
-import passport from 'passport'
-import '../middleware/passport/fitibitStrategy.js'
-
-const router = express.Router()
+const passport = require('passport')
+require('../middleware/passport/fitibitStrategy.js')
 
 router.get('/auth', passport.authenticate('fitbit', { scope: ['activity', 'heartrate', 'location', 'profile'] }))
 
@@ -20,4 +18,4 @@ router.get('/auth/failure', (req, res) => {
   res.json({ success: false, errors: null })
 })
 
-export default router
+module.exports = router

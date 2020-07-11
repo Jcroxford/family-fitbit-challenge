@@ -1,7 +1,5 @@
-import passport from 'passport'
-import FitbitPassport from 'passport-fitbit-oauth2'
-
-const FitbitOAuth2Strategy = FitbitPassport.FitbitOAuth2Strategy
+const passport = require('passport')
+const FitbitOAuth2Strategy = require('passport-fitbit-oauth2').FitbitOAuth2Strategy
 
 passport.use(new FitbitOAuth2Strategy(
   {
