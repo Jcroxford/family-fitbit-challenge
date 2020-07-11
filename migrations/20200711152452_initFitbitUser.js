@@ -3,19 +3,20 @@ exports.up = function (knex) {
   return knex.schema
     .createTable('fitbitUsers', (table) => {
       table.increments().primary()
-      table.integer('userId').unsigned()
-      table.foreign('userId').references('users.id').onDelete('CASCADE')
-      table.string('refreshToken').nullable()
-      table.string('accessToken').nullable()
+      table.integer('user_id').unsigned()
+      table.foreign('user_id').references('users.id').onDelete('CASCADE')
+      table.string('refresh_token').nullable()
+      table.string('access_token').nullable()
+      table.string('fitbit_id').notNullable()
       table.timestamps(false, true)
 
       table.index('id')
-      table.index('userId')
+      table.index('user_id')
     })
     .alterTable('users', (table) => {
       table.index('id')
-      table.string('lastName')
-      table.unique(['firstName', 'lastName'])
+      table.string('last_name')
+      table.unique(['first_name', 'last_name'])
     })
 }
 
@@ -25,7 +26,7 @@ exports.down = function (knex) {
     .dropTable('fitbitUsers')
     .alterTable('users', (table) => {
       table.dropIndex('id')
-      table.dropUnique(['firstName', 'lastName'])
-      table.dropColumn('lastName')
+      table.dropUnique(['first_name', 'last_name'])
+      table.dropColumn('last_name')
     })
 }
