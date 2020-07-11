@@ -10,7 +10,7 @@ class User extends Model {
       type: 'object',
       properties: {
         id: { type: 'integer' },
-        first_name: { type: 'string' }
+        firstName: { type: 'string' }
       }
     }
   }
