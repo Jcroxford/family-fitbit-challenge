@@ -3,6 +3,7 @@ exports.up = function (knex) {
   return knex.schema.createTable('users', (table) => {
     table.increments().primary()
     table.string('firstName')
+    table.timestamps(false, true)
   })
 }
 
