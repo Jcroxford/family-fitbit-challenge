@@ -1,6 +1,6 @@
-const { Model } = require('objection')
+const BaseModel = require('./BaseModel')
 
-class User extends Model {
+class User extends BaseModel {
   static get tableName () {
     return 'users'
   }
@@ -8,9 +8,11 @@ class User extends Model {
   static get jsonSchema () {
     return {
       type: 'object',
+      required: ['firstName', 'lastName'],
       properties: {
         id: { type: 'integer' },
-        firstName: { type: 'string' }
+        firstName: { type: 'string' },
+        lastName: { type: 'string' }
       }
     }
   }
