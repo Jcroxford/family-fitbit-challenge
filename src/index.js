@@ -1,27 +1,14 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const { ApolloServer, gql } = require('apollo-server-express')
+const { ApolloServer } = require('apollo-server-express')
 const passport = require('passport')
 
 require('./initDotenv.js')
 
 const FitbitController = require('./controllers/fitbit.controller.js')
 
-// Construct a schema, using GraphQL schema language
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`
-
-// Provide resolver functions for your schema fields
-const resolvers = {
-  Query: {
-    hello: () => 'Hello world!'
-  }
-}
-
-const server = new ApolloServer({ typeDefs, resolvers })
+const apolloSchema = require('./graphql')
+const server = new ApolloServer({ schema: apolloSchema })
 
 const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
