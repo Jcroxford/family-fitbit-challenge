@@ -8,5 +8,7 @@ module.exports = gql`
     id: ID!
     firstName: String!
     lastName: String!
+    createdAt: Date!
+    updatedAt: Date!
   }
 `
