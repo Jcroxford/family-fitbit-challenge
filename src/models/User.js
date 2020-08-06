@@ -1,8 +1,24 @@
+const { Model } = require('objection')
 const BaseModel = require('./BaseModel')
 
 class User extends BaseModel {
   static get tableName () {
     return 'users'
+  }
+
+  static get relationMappings () {
+    const FitibitUser = require('./FitBitUser')
+
+    return {
+      fitbitUser: {
+        relation: Model.HasOneRelation,
+        modelClass: FitibitUser,
+        join: {
+          from: 'users.id',
+          to: 'fitbit_users.userId'
+        }
+      }
+    }
   }
 
   static get jsonSchema () {
@@ -18,6 +34,4 @@ class User extends BaseModel {
   }
 }
 
-module.exports = {
-  User
-}
+module.exports = User

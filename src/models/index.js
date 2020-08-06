@@ -6,7 +6,9 @@ const { Model } = require('objection')
 Model.knex(knex)
 
 const User = require('./User').User
+const FitbitUser = require('./FitBitUser')
 
 module.exports = {
-  User
+  User,
+  FitbitUser
 }
