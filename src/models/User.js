@@ -22,13 +22,16 @@ class User extends BaseModel {
   }
 
   static get jsonSchema () {
+    const FitibitUser = require('./FitBitUser')
+
     return {
       type: 'object',
       required: ['firstName', 'lastName'],
       properties: {
         id: { type: 'integer' },
         firstName: { type: 'string' },
-        lastName: { type: 'string' }
+        lastName: { type: 'string' },
+        fitbitUser: FitibitUser.jsonSchema
       }
     }
   }
