@@ -75,18 +75,3 @@ class FitbitApi {
 }
 
 module.exports = FitbitApi
-
-require('../initDotenv')
-
-const db = require('../models')
-
-db.User.query().findById(10).withGraphFetched('fitbitUser')
-  .then(async user => {
-    const client = await FitbitApi.build(user.fitbitUser)
-
-    console.log(await client.steps())
-    console.log(await client.minutesSedentary())
-    console.log(await client.minutesLightlyActive())
-    console.log(await client.minutesFairlyActive())
-    console.log(await client.minutesVeryActive())
-  })
