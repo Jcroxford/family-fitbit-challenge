@@ -19,6 +19,8 @@ class FitbitApi {
         console.log(`[FitbitApi] failed to update token ${error}`)
       }
     }
+
+    return new FitbitApi(fitbitUser)
   }
 
   static async refreshAccessToken (refreshToken) {
@@ -34,6 +36,22 @@ class FitbitApi {
     })
       .then(res => res.json())
       .then(({ access_token: accessToken, refresh_token: refreshToken }) => ({ refreshToken, accessToken }))
+      .catch(err => console.log('[FitbitApi] error occured while refreshing access token', err))
+  }
+
+  async makeRequest ({ url, method = 'get' }) {
+    return fetch(`https://api.fitbit.com/1${url}`, {
+      method,
+      headers: {
+        Authorization: `Bearer ${this.accessToken}`
+      }
+    })
+      .then(res => res.json())
+      .catch(err => console.log(`[FitbitApi] error occured while making request to ${url}`, err))
+  }
+
+  async steps () {
+    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/steps/date/today/7d.json` })
   }
 }
 
