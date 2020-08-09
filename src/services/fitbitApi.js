@@ -1,3 +1,4 @@
+const db = require('../models')
 const jwt = require('jsonwebtoken')
 const fetch = require('node-fetch')
 
