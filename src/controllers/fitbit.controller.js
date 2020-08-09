@@ -3,7 +3,7 @@ const router = require('express').Router()
 const passport = require('passport')
 require('../middleware/passport/fitibitStrategy.js')
 
-router.get('/auth', passport.authenticate('fitbit', { scope: ['activity', 'heartrate', 'profile'] }))
+router.get('/auth', passport.authenticate('fitbit', { scope: ['activity', 'heartrate', 'location', 'profile'] }))
 
 router.get('/auth/callback', passport.authenticate('fitbit', {
   successRedirect: '/api/v1/fitbit/auth/success',

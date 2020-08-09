@@ -53,6 +53,22 @@ class FitbitApi {
   async steps () {
     return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/steps/date/today/7d.json` })
   }
+
+  async minutesSedentary () {
+    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesSedentary/date/today/7d.json` })
+  }
+
+  async minutesLightlyActive () {
+    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesLightlyActive/date/today/7d.json` })
+  }
+
+  async minutesFairlyActive () {
+    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesFairlyActive/date/today/7d.json` })
+  }
+
+  async minutesVeryActive () {
+    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesVeryActive/date/today/7d.json` })
+  }
 }
 
 module.exports = FitbitApi
