@@ -58,20 +58,20 @@ class FitbitApi {
     return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/steps/date/today/7d.json` }).then(res => res['activities-tracker-steps'])
   }
 
-  async minutesSedentary () {
-    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesSedentary/date/today/7d.json` })
+  async minutesSedentaryForLastSevenDays () {
+    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesSedentary/date/today/7d.json` }).then(res => res['activities-tracker-minutesSedentary'])
   }
 
-  async minutesLightlyActive () {
-    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesLightlyActive/date/today/7d.json` })
+  async minutesLightlyActiveForLastSevenDays () {
+    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesLightlyActive/date/today/7d.json` }).then(res => res['activities-tracker-minutesLightlyActive'])
   }
 
-  async minutesFairlyActive () {
-    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesFairlyActive/date/today/7d.json` })
+  async minutesFairlyActiveForLastSevenDays () {
+    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesFairlyActive/date/today/7d.json` }).then(res => res['activities-tracker-minutesFairlyActive'])
   }
 
-  async minutesVeryActive () {
-    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesVeryActive/date/today/7d.json` })
+  async minutesVeryActiveForLastSevenDays () {
+    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/minutesVeryActive/date/today/7d.json` }).then(res => res['activities-tracker-minutesVeryActive'])
   }
 }
 
