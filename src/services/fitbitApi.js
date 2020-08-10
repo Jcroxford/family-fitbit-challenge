@@ -54,8 +54,8 @@ class FitbitApi {
       .catch(err => console.log(`[FitbitApi] error occured while making request to ${url}`, err))
   }
 
-  async steps () {
-    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/steps/date/today/7d.json` })
+  async stepsForLastSevenDays () {
+    return this.makeRequest({ url: `/user/${this.fitbitUserId}/activities/tracker/steps/date/today/7d.json` }).then(res => res['activities-tracker-steps'])
   }
 
   async minutesSedentary () {

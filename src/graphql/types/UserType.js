@@ -10,5 +10,6 @@ module.exports = gql`
     lastName: String!
     createdAt: Date!
     updatedAt: Date!
+    fitbitUser: FitbitUser!
   }
 `

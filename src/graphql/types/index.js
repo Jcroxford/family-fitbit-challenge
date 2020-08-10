@@ -8,5 +8,6 @@ const QueryType = gql`
 
 module.exports = [
   QueryType,
-  require('./UserType')
+  require('./UserType'),
+  require('./FitbitUserType')
 ]
