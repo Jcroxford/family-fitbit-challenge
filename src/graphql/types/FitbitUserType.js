@@ -2,10 +2,10 @@ const { gql } = require('apollo-server-express')
 
 module.exports = gql`
   type FitbitUser {
-    steps: FitbitSteps!
+    steps: FitbitActivityTrackerResponse!
   }
 
-  type FitbitSteps {
+  type FitbitActivityTrackerResponse {
     today: Int!
     sevenDayAverage: Int!
   }
